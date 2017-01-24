@@ -22,7 +22,7 @@
                 notifications.showError({ message: message });
             },
             showSucess: function (message) {
-                notifications.showSucess({ message: message });
+                notifications.showSuccess({ message: message });
             }
         }
     };

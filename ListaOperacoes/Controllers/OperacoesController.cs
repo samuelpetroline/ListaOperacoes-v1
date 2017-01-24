@@ -111,7 +111,7 @@ namespace ListaOperacoes.Controllers
                                       TipoMercadoria = request.TipoMercadoria,
                                       TipoNegocio = x.tipo_negocio.CodigoTipoNegocio
                                   }).FirstOrDefault();
-
+                    
                     entities.Operacoes.Add(insert);
                     entities.SaveChanges();
                 }
@@ -136,22 +136,24 @@ namespace ListaOperacoes.Controllers
                     }
 
                     (from op in entities.Operacoes
-                    from tipo_negocio in entities.TiposNegocio
-                        .Where(x => x.NomeTipoNegocio == request.TipoNegocio.NomeTipoNegocio).DefaultIfEmpty(new TiposNegocio { CodigoTipoNegocio = 1 })
-                    where op.CodigoOperacao == request.CodigoOperacao
-                    select new
-                    {
-                        op,
-                        tipo_negocio
-                    }).ToList().ForEach(x =>
-                    {
-                        x.op.NomeOperacao = request.NomeOperacao;
-                        x.op.Preco = request.Preco;
-                        x.op.Quantidade = request.Quantidade;
-                        x.op.NomeMercadoria = request.NomeMercadoria;
-                        x.op.TipoMercadoria = request.TipoMercadoria;
-                        x.op.TipoNegocio = x.tipo_negocio.CodigoTipoNegocio;
-                    });
+                     from tipo_negocio in entities.TiposNegocio
+                         .Where(x => x.NomeTipoNegocio == request.TipoNegocio.NomeTipoNegocio).DefaultIfEmpty()
+                     where op.CodigoOperacao == request.CodigoOperacao
+                     select new
+                     {
+                         op,
+                         tipo_negocio
+                     }).ToList().ForEach(x =>
+                     {
+                         x.op.NomeOperacao = request.NomeOperacao;
+                         x.op.Preco = request.Preco;
+                         x.op.Quantidade = request.Quantidade;
+                         x.op.NomeMercadoria = request.NomeMercadoria;
+                         x.op.TipoMercadoria = request.TipoMercadoria;
+                         x.op.TipoNegocio = x.tipo_negocio.CodigoTipoNegocio;
+                     });
+
+
 
                     entities.SaveChanges();
                 }

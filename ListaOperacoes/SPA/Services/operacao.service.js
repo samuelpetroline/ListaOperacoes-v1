@@ -18,7 +18,7 @@
         this.carregarListaOperacoes = function () {
             ApiService.GetApiCall("Operacoes", "GetListaOperacoes", {}, function (event) {
                 if (event.hasErrors == true) {
-                    UIService.showError("Erro ao recuperar as listas de operação:" + event.error.data);
+                    UIService.showError("Erro ao recuperar a lista de operação: " + event.error.data.ExceptionMessage);
                 }
                 else {
                     angular.copy(event.result.data, vm.operacoes);
@@ -35,7 +35,7 @@
         this.carregarOperacao = function (op) {
             ApiService.GetApiCall("Operacoes", "GetOperacao", op, function (event) {
                 if (event.hasErrors == true) {
-                    UIService.showError("Erro ao recuperar a operação:" + event.error.data);
+                    UIService.showError("Erro ao recuperar a operação: " + event.error.data.ExceptionMessage);
                 }
                 else {
                     angular.copy(event.result.data, vm.operacao);
@@ -58,7 +58,7 @@
             if (op.CodigoOperacao != 0) {
                 ApiService.PostApiCall("Operacoes", "ExcluirOperacao", op, function (event) {
                     if (event.hasErrors == true) {
-                        UIService.showError("Erro ao excluir a operacao: " + event.error.data);
+                        UIService.showError("Erro ao excluir a operacao: " + event.error.data.ExceptionMessage);
                     }
                     else {
                         UIService.showSucess("Excluido com sucesso !!!");
@@ -74,7 +74,7 @@
                 ApiService.PostApiCall("Operacoes", "AlterarOperacao", op, function (event) {
 
                     if (event.hasErrors == true) {
-                        UIService.showError("Erro ao alterar a operacao: " + event.error.data);
+                        UIService.showError("Erro ao alterar a operacao: " + event.error.data.ExceptionMessage);
                     }
                     else {
                         UIService.showSucess("Alterado com sucesso !!!");
@@ -85,11 +85,11 @@
                 console.log(op);
                 ApiService.PostApiCall("Operacoes", "AdicionarOperacao", op, function (event) {
                     if (event.hasErrors == true) {
-                        UIService.showError("Erro ao salvar a operacao: " + event.error.data);
+                        UIService.showError("Erro ao salvar a operacao: " + event.error.data.ExceptionMessage);
                     }
                     else {
                         UIService.showSucess("Inserido com sucesso !!!");
-                        vm.broadcastListaOperacoes();
+                        vm.carregarListaOperacoes();
                     }
                 })
             }
@@ -98,7 +98,7 @@
         this.carregarTiposNegocio = function () {
             ApiService.GetApiCall("TiposNegocio", "GetTiposNegocio", {}, function (event) {
                 if (event.hasErrors == true) {
-                    UIService.showError("Erro ao carregar os Tipos de Negócio: " + event.error.data);
+                    UIService.showError("Erro ao carregar os Tipos de Negócio: " + event.error.data.ExceptionMessage);
                 }
                 else {
                     vm.tipos_negocio = event.result.data;
