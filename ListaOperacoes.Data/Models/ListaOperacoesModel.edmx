@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ListaOperacoesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Operacoes">
+          <Key>
+            <PropertyRef Name="CodigoOperacao" />
+          </Key>
+          <Property Name="CodigoOperacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeOperacao" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NomeMercadoria" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Quantidade" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Preco" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="TipoNegocio" Type="int" Nullable="false" />
+          <Property Name="TipoMercadoria" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TiposNegocio">
+          <Key>
+            <PropertyRef Name="CodigoTipoNegocio" />
+          </Key>
+          <Property Name="CodigoTipoNegocio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeTipoNegocio" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ListaOperacoesModelStoreContainer">
+          <EntitySet Name="Operacoes" EntityType="Self.Operacoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TiposNegocio" EntityType="Self.TiposNegocio" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ListaOperacoesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Operacoes">
+          <Key>
+            <PropertyRef Name="CodigoOperacao" />
+          </Key>
+          <Property Name="CodigoOperacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeOperacao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NomeMercadoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Quantidade" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Preco" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="TipoNegocio" Type="Int32" Nullable="false" />
+          <Property Name="TipoMercadoria" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TiposNegocio">
+          <Key>
+            <PropertyRef Name="CodigoTipoNegocio" />
+          </Key>
+          <Property Name="CodigoTipoNegocio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeTipoNegocio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ListasOperacoesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Operacoes" EntityType="Self.Operacoes" />
+          <EntitySet Name="TiposNegocio" EntityType="Self.TiposNegocio" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ListaOperacoesModelStoreContainer" CdmEntityContainer="ListasOperacoesEntities">
+          <EntitySetMapping Name="Operacoes">
+            <EntityTypeMapping TypeName="ListaOperacoesModel.Operacoes">
+              <MappingFragment StoreEntitySet="Operacoes">
+                <ScalarProperty Name="CodigoOperacao" ColumnName="CodigoOperacao" />
+                <ScalarProperty Name="NomeOperacao" ColumnName="NomeOperacao" />
+                <ScalarProperty Name="NomeMercadoria" ColumnName="NomeMercadoria" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="TipoNegocio" ColumnName="TipoNegocio" />
+                <ScalarProperty Name="TipoMercadoria" ColumnName="TipoMercadoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposNegocio">
+            <EntityTypeMapping TypeName="ListaOperacoesModel.TiposNegocio">
+              <MappingFragment StoreEntitySet="TiposNegocio">
+                <ScalarProperty Name="CodigoTipoNegocio" ColumnName="CodigoTipoNegocio" />
+                <ScalarProperty Name="NomeTipoNegocio" ColumnName="NomeTipoNegocio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

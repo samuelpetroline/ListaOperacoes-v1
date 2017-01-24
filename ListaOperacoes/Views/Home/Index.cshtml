@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/style.css" />
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Content/ngNotificationsBar.min.css" />
+
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-ui-router.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/loadingoverlay.min.js"></script>
+    <script src="~/scripts/ngNotificationsBar.min.js"></script>
+
+    <script src="~/SPA/App.js"></script>
+    <script src="~/SPA/Controllers/home.controller.js"></script>
+    <script src="~/SPA/Services/api.service.js"></script>
+    <script src="~/SPA/Services/ui.service.js"></script>
+    <script src="~/SPA/Services/operacao.service.js"></script>
+
+    <script src="~/SPA/Components/Navbar/navbar.directive.js"></script>
+    <script src="~/SPA/Components/Navbar/navbar.controller.js"></script>
+    <script src="~/SPA/Components/FormOperacao/form-operacao.directive.js"></script>
+    <script src="~/SPA/Components/FormOperacao/form-operacao.controller.js"></script>
+    <script src="~/SPA/Components/ListOperacao/list-operacao.directive.js"></script>
+    <script src="~/SPA/Components/ListOperacao/list-operacao.controller.js"></script>
+</head>
+<body>
+    <div ng-app="App">
+        <div home-navbar>
+
+        </div>
+
+        <div ui-view>
+
+        </div>
+    </div>
+</body>
+</html>

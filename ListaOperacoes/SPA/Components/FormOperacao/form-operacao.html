@@ -1,0 +1,51 @@
+﻿<div class="col-md-8 " id="loading-overlay-form">
+    <div class="col-md-12 ">
+        <form name="frmOperacao" class="form-horizontal" ng-submit="adicionarOperacao(operacao)" novalidate>
+            <div class="form-group">
+                <label for="nomeOperacao">Nome da Operação:</label>
+                <input type="text" class="form-control" id="nomeOperacao" placeholder="Nome da Operação" ng-attr-value="{{operacao.NomeOperacao}}" ng-model="operacao.NomeOperacao" ng-required="true">
+            </div>
+            <div class="form-group">
+                <label for="nomeMercadoria">Nome da Mercadoria:</label>
+                <input type="text" class="form-control" id="nomeMercadoria" placeholder="Nome da Mercadoria" ng-attr-value="{{operacao.NomeMercadoria}}" ng-model="operacao.NomeMercadoria" ng-required="true">
+            </div>
+            <div class="form-group">
+                <label for="tipoMercadoria">Tipo da Mercadoria:</label>
+                <input type="text" class="form-control" id="tipoMercadoria" placeholder="Tipo" ng-attr-value="{{operacao.TipoMercadoria}}" ng-model="operacao.TipoMercadoria" ng-required="true"> 
+            </div>
+            <div class="form-group">
+                <label for="quantidadeMercadoria">Quantidade:</label>
+                <input type="number" class="form-control" id="quantidadeMercadoria" placeholder="Quantidade" ng-attr-value="{{operacao.Quantidade}}" ng-model="operacao.Quantidade" ng-required="true">
+            </div>
+            <div class="form-group">
+                <label for="precoTotal">Preço:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">R$</div>
+                    <input type="number" class="form-control" id="precoTotal" placeholder="Preço total" ng-attr-value="{{operacao.Preco}}" ng-model="operacao.Preco" ng-required="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tipoNegocio">Tipo do Negócio:</label>
+                <select class="form-control" name="tipoNegocio" id="tipoNegocio" placeholder="Tipo do Negócio"
+                        ng-model="operacao.TipoNegocio.NomeTipoNegocio"
+                        ng-required="true">
+                    <option ng-repeat="option in tipos_negocio">{{option.NomeTipoNegocio}}</option>
+                </select>
+                <!--<input type="text" class="form-control" id="tipoNegocio" placeholder="Tipo do Negócio" ng-attr-value="{{operacao.TipoNegocio.NomeTipoNegocio}}" ng-model="operacao.TipoNegocio.NomeTipoNegocio" ng-required="true">-->
+            </div>
+            <div class="text-center">
+                <button type="button" 
+                        class="btn btn-danger frm-buttons"
+                        ng-click="limparTela()">
+                    Cancelar
+                </button>
+                <button type="button" 
+                        class="btn btn-success frm-buttons"
+                        ng-click="salvarOperacao()" >
+                    Aplicar
+                </button>
+                    
+            </div>
+        </form>
+    </div>
+</div>

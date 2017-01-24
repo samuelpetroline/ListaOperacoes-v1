@@ -1,0 +1,30 @@
+﻿.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.frm-buttons {
+    margin: 0 auto;
+    display: inline;
+    width: 150px;
+}
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+
+.badge-button {
+    color: #ff2121;
+}
+
+.nav-pills>li.active>a .badge-button {
+    color: #FFF;
+}
+
+.nav-pills>li>a:active .badge-button {
+    color: #bababa;
+}

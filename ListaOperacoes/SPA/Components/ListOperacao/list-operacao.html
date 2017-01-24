@@ -1,0 +1,13 @@
+﻿
+<ul class="nav nav-pills nav-stacked" id="loading-overlay-list">
+    <li class="clickable" ng-click="adicionarOperacao()">
+        <a> Adicionar nova operação <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span> </a>
+    </li>
+    <hr class="separator"/>
+    <li class="clickable" 
+        ng-repeat="op in operacoes" 
+        ng-class="{ active: isSelected(op)}"
+        ng-click="carregarOperacao(op)">
+            <a>{{op.NomeOperacao}} 
+            <span class="glyphicon glyphicon-trash pull-right badge-button" ng-click="excluirOperacao(op)"></span></a> </li>
+</ul>
